@@ -1,34 +1,34 @@
 .wrapper
 
-  / = render 'side_bar'
-  .side-bar
-    .header
-      %h3.header__name
-        ユーザーネーム
-      %ul.header__lists
-        %li.list
-          / = link_to "グループ", "groups/new", method: :get, class: 'btn'
-          = link_to new_group_path do
-            = fa_icon 'pencil-square-o', class: 'icon'
-        %li.list
-          = link_to do
-            = fa_icon 'cog', class: 'icon'
-    .groups
-      .group
-        .group__name
-          グループ名
-        .group__message
-          新着メッセージ
-      .group
-        .group__name
-          グループ名
-        .group__message
-          新着メッセージ
-      .group
-        .group__name
-          グループ名
-        .group__message
-          新着メッセージ
+  =render "side_bar"
+  / .side-bar
+  /   .header
+  /     %h3.header__name
+  /       ユーザーネーム
+  /     %ul.header__lists
+  /       %li.list
+  /         / = link_to "グループ", "groups/new", method: :get, class: 'btn'
+  /         = link_to new_group_path do
+  /           = fa_icon 'pencil-square-o', class: 'icon'
+  /       %li.list
+  /         = link_to do
+  /           = fa_icon 'cog', class: 'icon'
+  /   .groups
+  /     .group
+  /       .group__name
+  /         グループ名
+  /       .group__message
+  /         新着メッセージ
+  /     .group
+  /       .group__name
+  /         グループ名
+  /       .group__message
+  /         新着メッセージ
+  /     .group
+  /       .group__name
+  /         グループ名
+  /       .group__message
+  /         新着メッセージ
 
 
   .chat
