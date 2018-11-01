@@ -2,7 +2,7 @@
 .side-bar
   .header
     %h3.header__name
-      ユーザーネーム
+      = current_user.name
     %ul.header__lists
       %li.list
         = link_to new_group_path do
@@ -25,4 +25,3 @@
       .group__name
         グループ名
       .group__message
-
