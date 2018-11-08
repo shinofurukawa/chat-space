@@ -32,4 +32,17 @@ $(function(){
       processData: false,
       contentType: false
   })
+
+    .done(function(data){
+          $.each(data, function(i, data){
+            var html = buildHTML(data);
+            $('.chat-main__body').append(html)
+            var position = $('#chat-main__body').offset().top;
+    .fail(function() {
+          alert('error');
+        });
+
+        $('.chat-main__body').animate({scrollTop: position + "99px"}, 500);
+      });
+    });
 })
