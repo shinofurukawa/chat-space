@@ -1,6 +1,10 @@
-$(function(){
- function buildHTML(message){
-  var html = `<div class="chat-main__body--id" data-message-id="${message.id}">
+  $(function(){
+      setInterval(update, 5000);
+      console.log('time')
+    });
+
+  function buildHTML(message){
+    var html = `<div class="chat-main__body--id" data-message-id="${message.id}">
                 <div class="chat-main__body--name">
                   ${message.user_name}
                 </div>
