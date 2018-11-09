@@ -46,7 +46,7 @@ function buildHTML(message){
       $('.messages').append(html)
       $('#message_content').val('');
       $('.form__submit').prop('disabled', false);
-      $('.message').animate({ scrollTop: $('.message')[0].scrollHeight });
+      $('html,body').animate({ scrollTop: $('.messages')[0].scrollHeight });
       $('.hidden').remove();
       })
   .fail(function(){
