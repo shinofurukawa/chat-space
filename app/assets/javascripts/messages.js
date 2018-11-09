@@ -4,10 +4,7 @@ $(function(){
 function buildHTML(message){
 
   var insertImage = message.image_url ? `<img src="${message.image_url}" class='lower-message__image'>` : "";
-  // var insertImage = '';
-  //   if (message.image_url) {
-  //     insertImage = `<img src="${message.image_url}">`;
-  //   }
+
   var html = `<div class="message">
                 <div class="upper-message">
                   <div class="upper-message__user-name">
@@ -53,36 +50,41 @@ function buildHTML(message){
       alert('メッセージを入力してください');
       })
   })
+ // 自動更新
+
+
+
+
+
 })
 
-// // 自動更新
-//   var interval = setInterval(function(){
-//     var lastMessageId = $('.message').last().attr('message-id');
-//     var presentHTML = window.location.href;
-//     if (presentHTML.match(/\/groups\/\d+\/messages/)) {
-//       $.ajax ({
-//         url: presentHTML,
-//         type: 'GET',
-//         data: {id: lastMessageId},
-//         dataType: 'json',
-//       })
-//       .done(function(json){
-//         // ここに処理を書く、ラストメッセージをappendするやつ
-//         var insertHtml = "";
-//         update.messages.forEach(function(message){
-//         insertHtml += buildHTML(message);
-//          });
-//      $(".chat__contents"). append(insertHtml);
-//        })
-//       .fail(function() {
-//         alert('');
-//       })
-//     } else {
-//       clearInterval(interval)
-//     }
-//   },5000);
 
-// });
+  // var interval = setInterval(function(){
+  //   var lastMessageId = $('.message').last().attr('message-id');
+  //   var presentHTML = window.location.href;
+  //   if (presentHTML.match(/\/groups\/\d+\/messages/)) {
+  //     $.ajax ({
+  //       url: presentHTML,
+  //       type: 'GET',
+  //       data: {id: lastMessageId},
+  //       dataType: 'json',
+  //     })
+  //     .done(function(json){
+  //       // ここに処理を書く、ラストメッセージをappendするやつ
+  //       var insertHtml = "";
+  //       update.messages.forEach(function(message){
+  //       insertHtml += buildHTML(message);
+  //        });
+  //    $(".chat__contents"). append(insertHtml);
+  //      })
+  //     .fail(function() {
+  //       alert('');
+  //     })
+  //   } else {
+  //     clearInterval(interval)
+  //   }
+  // },5000);
+
 
 
 
