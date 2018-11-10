@@ -57,7 +57,7 @@ function buildHTML(message){
     $.ajax({
       url: window.location.href,
       type: 'GET',
-      data: {id: $('.message').last().attr('message-id')},
+      data: {id: $('.message').last().attr('data-id')},
       dataType: 'json',
     })
 
