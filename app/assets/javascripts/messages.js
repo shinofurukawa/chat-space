@@ -50,65 +50,30 @@ function buildHTML(message){
       alert('メッセージを入力してください');
       })
   })
- // 自動更新
 
 
+  var interval = setInterval(function() {
+      if (window.location.href.match(/\/groups\/\d+\/messages/)) {
+    $.ajax({
+      url: window.location.href,
+      type: 'GET',
+      data: {id: $('.message').last().attr('data-id')},
+      dataType: 'json',
+    })
 
-
-
+    .done(function(json) {
+      var $messages = $('.messages');
+      var insertHTML = '';
+      json.forEach(function(message) {
+          insertHTML += buildHTML(message);
+          $messages.append(insertHTML);
+      });
+    })
+    .fail(function() {
+      alert('自動更新に失敗しました');
+    })
+  } else {
+    clearInterval(interval);
+   }
+  }, 5 * 1000 );
 })
-
-
-  // var interval = setInterval(function(){
-  //   var lastMessageId = $('.message').last().attr('message-id');
-  //   var presentHTML = window.location.href;
-  //   if (presentHTML.match(/\/groups\/\d+\/messages/)) {
-  //     $.ajax ({
-  //       url: presentHTML,
-  //       type: 'GET',
-  //       data: {id: lastMessageId},
-  //       dataType: 'json',
-  //     })
-  //     .done(function(json){
-  //       // ここに処理を書く、ラストメッセージをappendするやつ
-  //       var insertHtml = "";
-  //       update.messages.forEach(function(message){
-  //       insertHtml += buildHTML(message);
-  //        });
-  //    $(".chat__contents"). append(insertHtml);
-  //      })
-  //     .fail(function() {
-  //       alert('');
-  //     })
-  //   } else {
-  //     clearInterval(interval)
-  //   }
-  // },5000);
-
-
-
-
-
-  // var message_id = $('.message').last().attr('message-id');
-  // setInterval(function() {
-  //   $.ajax({
-  //     url: window.location.href,
-  //     type: 'GET',
-  //     data: {id: message_id},
-  //     dataType: 'json'
-  //   })
-  //   .done (function(){
-  //     console.log(message_id);
-
-  //   // var insertHtml = "";
-  //   // update.messages.forEach(function(message){
-  //   //   insertHtml += buildHTML(message);
-  //   // });
-  //   $(".chat__contents__content"). append(insertHtml);
-  //   })
-  // .fail(function(data) {
-  //   alert('自動更新に失敗しました');
-  // });
-  // }, 5000);
-
-
