@@ -1,8 +1,8 @@
-$(document).on('turbolinks:load', function(){
+$(function(){
   function buildHTML(message){
     var insertImage = message.image_url ? `<img src="${message.image_url}" class='lower-message__image'>` : "";
 
-    var html = `<div class="message">
+    var html = `<div class="message" data-id=${message.id}>
                   <div class="upper-message">
                     <div class="upper-message__user-name">
                       ${message.user_name}
@@ -55,10 +55,11 @@ $(document).on('turbolinks:load', function(){
         url: window.location.href,
         type: 'GET',
         data: {id: $('.message').last().attr('data-id')},
-        dataType: 'json',
+        dataType: 'json'
       })
 
       .done(function(json) {
+        console.log(json)
         var $messages = $('.messages');
         var insertHTML = '';
         json.forEach(function(message) {
