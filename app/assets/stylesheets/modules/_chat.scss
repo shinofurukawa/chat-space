@@ -1,8 +1,8 @@
 .chat {
-  width: calc(100vw - 300px);
+  width: calc(100% - 300px);
   .header {
     box-sizing: border-box;
-    height: 100vh;
+    height: 100px;
     padding: 0 40px;
     .left-header {
       float: left;
