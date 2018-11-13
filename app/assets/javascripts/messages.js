@@ -59,7 +59,6 @@ $(function(){
       })
 
       .done(function(json) {
-        console.log(json)
         var $messages = $('.messages');
         var insertHTML = '';
         json.forEach(function(message) {
